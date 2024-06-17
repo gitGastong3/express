@@ -11,6 +11,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 // -> users.jsへ
 var usersRouter = require('./routes/users');
+// -> hello.jsへ
+var helloRouter = require('./routes/hello');
 
 // expressオブジェクトの作成
 var app = express();
@@ -29,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ルート用、エラー用のapp.use
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/hello', helloRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
